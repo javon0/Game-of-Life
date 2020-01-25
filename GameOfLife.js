@@ -10,18 +10,30 @@ class GameOfLife {
    */
 
   makeBoard() {
-    // TODO: Create and return an 2D Array 
-    // with `this.heigh` as rows and `this.width` as cols.
-    // For example, given a height of 4 and a width of 3, it will generate:
-    // [
-    //  [0, 0, 0],
-    //  [0, 0, 0],
-    //  [0, 0, 0],
-    //  [0, 0, 0],
-    // ]
+    let board = [];
+  
+    for (let i = 0; i < this.height; i++) {
+      let columns = this.height[i];
+      let row = [];
+  
+      for (let j = 0; j < this.width; j++) {
+        let rows = this.width[j];
+  
+        row.push(0);
+      }
+      board.push(row);
+    }
+    return board;
+  }
+  
+  getCell(row, col){
+    if (this.board[row] !== undefined && this.board[row][col] !== undefined){
+      return this.board[row][col]
+    }
+    return 'dead'
   }
 
-
+  
   /**
    * Return the amount of living neighbors around a given coordinate.
    */
